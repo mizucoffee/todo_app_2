@@ -72,7 +72,7 @@ post '/tasks' do
   date = params[:due_date].split('-')
   list = List.find(params[:list])
   if Date.valid_date?(date[0].to_i, date[1].to_i, date[2].to_i)
-    current_user.tasks.create(title: params[:title],
+    current_user.tasks.create(title: params[:title]+'a',
     due_date: Date.parse(params[:due_date]), list_id: list.id)
     redirect '/'
   else
